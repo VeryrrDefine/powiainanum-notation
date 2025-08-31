@@ -1,0 +1,42 @@
+{
+  "name": "@veryrrdefine/powiainanum-notations",
+  "version": "0.1.0",
+  "description": "Notations for PowiainaNum.js 0.2.0",
+  "main": "dist/powiainanum-Notations.cjs.js",
+  "module": "dist/powiainanum-notations.esm.js",
+  "exports": {
+    "import": "./dist/powiainanum-notations.esm.js",
+    "require": "./dist/powiainanum-notations.cjs.js",
+    "types": "./dist/index.d.ts"
+  },
+  "unpkg": "dist/powiainanum-notations.min.js",
+  "jsdelivr": "dist/powiainanum-notations.min.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "bili",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bignum",
+    "bignumber",
+    "bigdecimal",
+    "number",
+    "decimal"
+  ],
+  "author": "VeryrrDefine",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "bili": "^5.0.5",
+    "prettier": "^3.6.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "powiaina_num.js": "^0.2.0"
+  }
+}
