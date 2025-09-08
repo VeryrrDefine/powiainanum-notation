@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="importmap">
+    {
+        "imports": {
+            "powiaina_num.js": "./node_modules/powiaina_num.js/dist/PowiainaNum.esm.js",
+            "@veryrrdefine/powiainanum-notations": "./dist/powiainanum-notations.esm.js"
+        }
+    }
+    </script>
+    <script type="module">
+        import PowiainaNum from 'powiaina_num.js';
+        import PowiainaNumNotations from './dist/powiainanum-notations.esm.js';
+        window.PowiainaNum = PowiainaNum;
+        window.PowiainaNumNotations = PowiainaNumNotations;
+        window.FGHJNotation = new (PowiainaNumNotations.NotationsMap.get(PowiainaNumNotations.NotationsEnum.FGH_J));
+        window.EngineeringNotation = new (PowiainaNumNotations.NotationsMap.get(PowiainaNumNotations.NotationsEnum.ENGINEERING));
+    </script>
+</body>
+
+</html>

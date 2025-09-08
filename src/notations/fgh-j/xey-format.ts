@@ -1,6 +1,10 @@
 import PowiainaNum, { type PowiainaNumSource } from "powiaina_num.js";
 import { myPolarize } from "./xey-array";
-
+export interface FormatOptions {
+  reciprocate_format: boolean;
+  UCF: boolean;
+  engineering: boolean;
+}
 const defaultXEYOptions = {
   reciprocate_format: false,
   UCF: false,
@@ -8,7 +12,7 @@ const defaultXEYOptions = {
 } as const;
 function parseMEtoEnginnering(m: number, e: number) {
   if (e % 3 !== 0) {
-    let rest = e - Math.floor(e / 3);
+    let rest = Math.floor(e % 3);
     let m2 = m * 10 ** rest;
     let e2 = e - rest;
     return [m2, e2];
@@ -17,7 +21,7 @@ function parseMEtoEnginnering(m: number, e: number) {
 }
 function parseMEtoEnginnering2(m: PowiainaNum, e: PowiainaNum) {
   if (e.mod(3).neq(0)) {
-    let rest = e.sub(e.div(3));
+    let rest = e.mod(3).round().floor();
     let m2 = m.mul(rest.pow10());
     let e2 = e.sub(rest);
     return [m2, e2];
@@ -27,11 +31,7 @@ function parseMEtoEnginnering2(m: PowiainaNum, e: PowiainaNum) {
 const formatXEY = (
   value: PowiainaNum,
   precision: number = 4,
-  options: {
-    reciprocate_format: boolean;
-    UCF: boolean;
-    engineering: boolean;
-  } = defaultXEYOptions
+  options: FormatOptions = defaultXEYOptions
 ): string => {
   if (value.isNaN()) return `nan`;
   else if (value.eq(0)) return (0).toFixed(precision);

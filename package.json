@@ -37,6 +37,6 @@
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "powiaina_num.js": "^0.2.0"
+    "powiaina_num.js": "^0.2.7"
   }
 }
