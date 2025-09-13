@@ -6,7 +6,7 @@ export enum NotationsEnum {
   ENGINEERING,
 }
 
-export const NotationsMap = new Map<NotationsEnum, typeof Notation>([
-  [NotationsEnum.FGH_J, FGHJNotation],
-  [NotationsEnum.ENGINEERING, EngineeringNotation],
-]);
+export const NotationsMap = {
+  [NotationsEnum.FGH_J]: FGHJNotation,
+  [NotationsEnum.ENGINEERING]: EngineeringNotation,
+};
