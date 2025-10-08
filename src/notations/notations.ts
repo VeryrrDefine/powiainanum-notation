@@ -9,4 +9,4 @@ export enum NotationsEnum {
 export const NotationsMap = {
   [NotationsEnum.FGH_J]: FGHJNotation,
   [NotationsEnum.ENGINEERING]: EngineeringNotation,
-};
+} as const;
